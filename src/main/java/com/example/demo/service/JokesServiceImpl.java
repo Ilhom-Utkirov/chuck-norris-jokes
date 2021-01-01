@@ -1,16 +1,15 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Jokes;
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReturnJokesServiceImpl implements ReturnJokesService {
+public class JokesServiceImpl implements JokesService {
 
     private final ChuckNorrisQuotes chuckNorrisQuotes;
 
-    public ReturnJokesServiceImpl() {
-        this.chuckNorrisQuotes = new ChuckNorrisQuotes();
+    public JokesServiceImpl(ChuckNorrisQuotes chuckNorrisQuotes) {
+        this.chuckNorrisQuotes = chuckNorrisQuotes;
     }
 
     @Override

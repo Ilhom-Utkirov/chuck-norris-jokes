@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Jokes;
-import com.example.demo.service.ReturnJokesService;
+import com.example.demo.service.JokesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class JokeController {
 
-    ReturnJokesService returnJokesService;
+    JokesService jokesService;
 
     @Autowired
-    public JokeController(ReturnJokesService returnJokesService) {
-        this.returnJokesService = returnJokesService;
+    public JokeController(JokesService jokesService) {
+        this.jokesService = jokesService;
     }
 
     @GetMapping("/")
     public String getJokes(Model model){
         Jokes jokes = new Jokes();
-        jokes.setJokeContent(returnJokesService.getJokes());
+        jokes.setJokeContent(jokesService.getJokes());
         model.addAttribute("jokeSend", jokes);
         return "jokesTemplate";
     }

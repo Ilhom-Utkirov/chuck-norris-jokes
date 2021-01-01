@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-public interface ReturnJokesService {
+public interface JokesService {
 
    String getJokes();
 }
